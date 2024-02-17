@@ -1,0 +1,19 @@
+header {
+    background-color: var(--dark-color);
+    height: 80px;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    font-style: normal;
+}
+.link:hover {
+    color: var(--hover-white);
+    transition: all 0.3s;
+}
+.link:active {
+    transform: scale(0.9);
+}

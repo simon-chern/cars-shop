@@ -1,0 +1,50 @@
+{
+    "cars": [
+        {
+            "id": 0,
+            "photo": "./assets/img/photo1.jpg",
+            "brand": "BMW",
+            "model": "M5",
+            "horsepowers": 625,
+            "price": 50.000,
+            "year": 2020
+        },
+        {
+            "id": 1,
+            "photo": "./assets/img/rs7.jpg",
+            "brand": "Audi",
+            "model": "RS7",
+            "horsepowers": 525,
+            "price": 60.000,
+            "year": 2020
+        },
+        {
+            "id": 2,
+            "photo": "./assets/img/photo3.jpg",
+            "brand": "Mersedes-benz",
+            "model": "G-class",
+            "horsepowers": 585,
+            "price": 70.000,
+            "year": 2020
+        },
+        {
+            "id": 3,
+            "photo": "./assets/img/photo4.jpg",
+            "brand": "Mersedes-benz",
+            "model": "S-class",
+            "horsepowers": 625,
+            "price": 50.000,
+            "year": 2020
+        },
+        {
+            "id": 4,
+            "photo": "./assets/img/photo5.jpg",
+            "brand": "Porshe",
+            "model": "911",
+            "horsepowers": 625,
+            "price": 55.000,
+            "year": 2020
+        }
+    ]
+    
+}
