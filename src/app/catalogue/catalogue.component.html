@@ -1,1 +1,11 @@
-<p>catalogue works!</p>
+<section class="intro">
+    <h2 class="grad">Renting of luxury cars in Moscow</h2>
+    <p class="grad">Only the best cars with the full security package</p>
+</section>
+<!-- <section class="filter">
+</section> -->
+<section class="results">
+    @for(car of cars; track car.id) {
+        <app-car [car]="car"></app-car>
+    }
+</section>
