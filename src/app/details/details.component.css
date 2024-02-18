@@ -1,12 +1,32 @@
-section {
-    margin: 20px;
+article {
+    padding: 20px;
     display: flex;
 }
+.head {
+    display: grid;
+    justify-content: start;
+}
 .photo {
-  height: 250px;
+  height: 400px;
   width: auto;
   object-fit: cover;
   border-radius: 30px;
+}
+h1 {
+    font-size: 54px;
+}
+.information {
+    color: var(--dark-color); 
+    text-align: start;
+    padding-top: 40px;
+}
+.form {
+    margin: 30px;
+    display: grid;
+    text-align: center;
+}
+form {
+    margin: 10px auto;
 }
 label, input {
   display: block;
@@ -17,7 +37,7 @@ label {
   text-transform: uppercase;
   font-size: 12pt;
 }
-input {
+input { 
   font-size: 16pt;
   margin-bottom: 15px;
   padding: 10px;
