@@ -19,4 +19,5 @@ export class CatalogueComponent {
       this.cars = cars;
     })
   }
+  //later implement filtering here
 }

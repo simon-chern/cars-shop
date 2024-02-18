@@ -12,4 +12,11 @@ export class CarsService {
     const responce = await fetch(this.url);
     return responce.json() ?? [];
   };
+  async getCarById(id: number): Promise<CarInterface | undefined> {
+    const responce = await fetch(`${this.url}/${id}`);
+    return responce.json();
+  }
+  submitForm(name: string, surname: string, phone: string) {
+    console.log(name, surname, phone);
+  }
 };

@@ -1,0 +1,19 @@
+<section>
+    <img class="photo" [src]="car?.photo" alt="photo of a car">
+    <h2>{{car?.model}}</h2>
+    <p>{{car?.horsepowers}}, {{car?.year}}, {{car?.price}}</p>
+</section>
+<section>
+    <h1>Rend car of your dream right now!</h1>
+    <form [formGroup]="carForm" (submit)="submitForm()">
+        <label for="name"></label>
+        <input formControlName="name">
+
+        <label for="surname"></label>
+        <input formControlName="surname">
+
+        <label for="phone"></label>
+        <input formControlName="phone">
+        <button type="submit" class="button">Submit form</button>
+    </form>
+</section>
