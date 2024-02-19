@@ -16,6 +16,22 @@
     -webkit-background-clip: text;
     color: transparent;
 }
+.filter {
+    background-color: var(--dark-color);
+}
+.filterBtn {
+    background-color: var(--text-color);
+    color: var(--dark-color);
+    font-family: inherit;
+    font-size: 44px;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px;
+}
+.filterBtn:active {
+    transform: scale(0.9);
+}
+
 .results {
     background: var(--dark-color);
     display: grid;

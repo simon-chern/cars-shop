@@ -3,9 +3,10 @@
     <p class="grad">Only the best cars with the full security package</p>
 </section>
 <section class="filter">
+    <button class="filterBtn" (click)="filterCars()">Porshe</button>
 </section>
 <section class="results">
-    @for(car of cars; track car.id) {
+    @for(car of filteredCars; track car.id) {
         <app-car [car]="car"></app-car>
     }
 </section>

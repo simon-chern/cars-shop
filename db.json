@@ -44,6 +44,24 @@
             "horsepowers": 625,
             "price": 55000,
             "year": 2020
+        },
+        {
+            "id": 5,
+            "photo": "./assets/photo6.jpg",
+            "brand": "BMW",
+            "model": "X5",
+            "horsepowers": 625,
+            "price": 55000,
+            "year": 2020
+        },
+        {
+            "id": 6,
+            "photo": "./assets/photo7.jpg",
+            "brand": "Porshe",
+            "model": "Cayenne",
+            "horsepowers": 605,
+            "price": 40000,
+            "year": 2023
         }
     ]
 }

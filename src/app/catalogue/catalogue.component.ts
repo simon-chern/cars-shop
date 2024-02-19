@@ -13,11 +13,18 @@ import { CarComponent } from '../car/car.component';
 export class CatalogueComponent {
   cars: CarInterface[] = [];
   carsService: CarsService = inject(CarsService);
+  filteredCars: CarInterface[] = [];
 
   constructor() {
     this.carsService.getAllCars().then((cars: CarInterface[]) => {
       this.cars = cars;
-    })
-  }
-  //later implement filtering here
-}
+      this.filteredCars = cars;
+    });
+  };
+  filterCars() {
+    this.filteredCars = this.cars.filter(
+      car => car?.brand.includes("Porshe")
+    );
+    console.log(this.filteredCars, this.cars);
+  };
+};
