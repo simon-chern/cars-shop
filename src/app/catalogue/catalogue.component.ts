@@ -22,7 +22,6 @@ export class CatalogueComponent {
       this.filteredCars = cars;
     });
   };
-
   filterCars(option: string) {
     if (option === "ALL") {
       this.filteredCars = this.cars;
