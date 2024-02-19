@@ -3,7 +3,12 @@
     <p class="grad">Only the best cars with the full security package</p>
 </section>
 <section class="filter">
-    <button class="filterBtn" (click)="filterCars()">Porshe</button>
+    <button class="filterBtn" (click)="toggleButton()">Filter by brand ↓</button>
+    <div class="dropdown" [ngClass]="{ 'active': isToggled }">
+        @for (option of dropdownOptions; track option) {
+            <a (click)="filterCars(option)"> {{option}} </a>
+        }
+    </div>
 </section>
 <section class="results">
     @for(car of filteredCars; track car.id) {
