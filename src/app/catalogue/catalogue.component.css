@@ -40,4 +40,5 @@
     grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
     justify-content: space-around;
     padding: 10px;
+    padding-bottom: 60px;
 }
