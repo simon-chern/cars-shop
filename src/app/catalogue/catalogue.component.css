@@ -18,29 +18,32 @@
 }
 .filter {
     background-color: var(--dark-color);
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;  
     height: 100px;
     padding: 10px;
 }
 .Btn {
-    background-color: var(--text-color);
-    color: var(--dark-color);
-    font-family: inherit;
-    font-size: 28px;
-    padding: 10px;
-    border-radius: 8px;
-    margin: 10px 10px 0 10px;
+  background-color: var(--text-color);
+  color: var(--dark-color);
+  font-family: inherit;
+  font-size: 28px;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px 10px 0 10px;
 }
-.filterBtn:active {
-    transform: scale(0.9);
+.Btn:active {
+  transform: scale(0.9);
 }
 
+.BrandFiltering {
+  position: relative;
+}
 .dropdown {
   display: none ;
-  position: relative;
-  top: 0;
+  position: absolute;
+  top: 100%;
   left: 0;
   background-color: #f9f9f9;
   min-width: 160px;
@@ -65,14 +68,13 @@
   display: block;
 }
 
-
 .results {
-    background: var(--dark-color);
-    display: grid;
-    column-gap: 14px;
-    row-gap: 14px;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
-    justify-content: space-around;
-    padding: 10px;
-    padding-bottom: 60px;
+  background: var(--dark-color);
+  display: grid;
+  column-gap: 14px;
+  row-gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
+  justify-content: space-around;
+  padding: 10px;
+  padding-bottom: 60px;
 }

@@ -3,7 +3,7 @@
     <p class="grad">Only the best cars with the full security package</p>
 </section>
 <section class="filter">
-    <button class="Btn">All brands</button>
+    <button class="Btn" (click)="getAllCarsButton()">All brands</button>
     <div class="BrandFiltering">
         <button class="Btn" (click)="toggleButton()">Filter by brand ↓</button>
         <div class="dropdown" [ngClass]="{ 'active': isToggled }">

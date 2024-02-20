@@ -29,7 +29,12 @@ export class CatalogueComponent implements OnInit {
     this.isToggled = false;
   }
   isToggled: boolean = false;
-
+  getAllCarsButton() {
+    this.carsService.getAllCars().then((cars: CarInterface[]) => {
+      this.cars = cars;
+      this.filteredCars = cars;
+    });
+  }
   toggleButton() {
     this.isToggled = !this.isToggled;
   }
