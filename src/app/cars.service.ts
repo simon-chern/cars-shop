@@ -25,12 +25,12 @@ export class CarsService {
   constructor(private http: HttpClient) { }
 
   getUniqueBrands(): Observable<string[]> {
-    return this.http.get<any[]>(this.url).pipe(
+    return this.http.get<CarInterface[]>(this.url).pipe(
       map(data => this.extractUniqueBrands(data))
     );
   }
 
-  private extractUniqueBrands(data: any[]): string[] {
+  private extractUniqueBrands(data: CarInterface[]): string[] {
     const uniqueBrands = new Set<string>();
     data.forEach(item => {
       if (item && item.brand) {
