@@ -24,7 +24,7 @@
     height: 100px;
     padding: 10px;
 }
-.filterBtn {
+.Btn {
     background-color: var(--text-color);
     color: var(--dark-color);
     font-family: inherit;

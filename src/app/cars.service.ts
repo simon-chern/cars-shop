@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CarInterface } from './carInterface';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +10,6 @@ import { Observable } from 'rxjs';
 export class CarsService {
   url = 'http://localhost:3000/cars';
 
-  constructor() { }
   async getAllCars(): Promise<CarInterface[]> {
     const responce = await fetch(this.url);
     return responce.json() ?? [];
@@ -19,5 +20,23 @@ export class CarsService {
   }
   submitForm(name: string, surname: string, phone: string) {
     console.log(name, surname, phone);
+  }
+
+  constructor(private http: HttpClient) { }
+
+  getUniqueBrands(): Observable<string[]> {
+    return this.http.get<any[]>(this.url).pipe(
+      map(data => this.extractUniqueBrands(data))
+    );
+  }
+
+  private extractUniqueBrands(data: any[]): string[] {
+    const uniqueBrands = new Set<string>();
+    data.forEach(item => {
+      if (item && item.brand) {
+        uniqueBrands.add(item.brand);
+      }
+    });
+    return Array.from(uniqueBrands);
   }
 };
