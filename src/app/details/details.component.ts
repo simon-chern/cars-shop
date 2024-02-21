@@ -23,7 +23,7 @@ export class DetailsComponent {
   })
   constructor() {
     const carId = Number(this.route.snapshot.params['id']);
-    this.CarsService.getCarById(carId).then(car => {
+    this.CarsService.getCarById(carId).subscribe(car => {
       this.car = car;
     })
   }
@@ -34,7 +34,7 @@ export class DetailsComponent {
       this.carForm.value.phone ?? ''
     )
     this.carForm.reset()
-    this.text = "The info was successfully send and our menegar will call you back soon."
+    this.text = "The info was successfully send and our manager will call you back soon."
     setInterval(() => {
       this.text = '';
     }, 10000)

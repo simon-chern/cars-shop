@@ -17,7 +17,7 @@ export class CatalogueComponent implements OnInit {
   filteredCars: CarInterface[] = [];
 
   constructor() {
-    this.carsService.getAllCars().then((cars: CarInterface[]) => {
+    this.carsService.getAllCars().subscribe((cars: CarInterface[]) => {
       this.cars = cars;
       this.filteredCars = cars;
     });
@@ -30,7 +30,7 @@ export class CatalogueComponent implements OnInit {
   }
   isToggled: boolean = false;
   getAllCarsButton() {
-    this.carsService.getAllCars().then((cars: CarInterface[]) => {
+    this.carsService.getAllCars().subscribe((cars: CarInterface[]) => {
       this.cars = cars;
       this.filteredCars = cars;
     });

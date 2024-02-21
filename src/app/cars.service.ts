@@ -9,20 +9,19 @@ import { map } from 'rxjs/operators';
 })
 export class CarsService {
   url = 'http://localhost:3000/cars';
-
-  async getAllCars(): Promise<CarInterface[]> {
-    const responce = await fetch(this.url);
-    return responce.json() ?? [];
-  };
-  async getCarById(id: number): Promise<CarInterface | undefined> {
-    const responce = await fetch(`${this.url}/${id}`);
-    return responce.json();
+  constructor(private http: HttpClient) { }
+  
+  getAllCars(): Observable<CarInterface[]> {
+    return this.http.get<CarInterface[]>(this.url);
+  }
+  
+  getCarById(id: number): Observable<CarInterface | undefined> {
+    return this.http.get<CarInterface>(`${this.url}/${id}`)
   }
   submitForm(name: string, surname: string, phone: string) {
     console.log(name, surname, phone);
   }
 
-  constructor(private http: HttpClient) { }
 
   getUniqueBrands(): Observable<string[]> {
     return this.http.get<CarInterface[]>(this.url).pipe(
