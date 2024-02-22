@@ -10,11 +10,11 @@ import { map } from 'rxjs/operators';
 export class CarsService {
   url = 'http://localhost:3000/cars';
   constructor(private http: HttpClient) { }
-  
+
   getAllCars(): Observable<CarInterface[]> {
     return this.http.get<CarInterface[]>(this.url);
   }
-  
+
   getCarById(id: number): Observable<CarInterface | undefined> {
     return this.http.get<CarInterface>(`${this.url}/${id}`)
   }
@@ -37,5 +37,11 @@ export class CarsService {
       }
     });
     return Array.from(uniqueBrands);
+  }
+  //user authentication 
+  private isAuthenticated: boolean = false;
+  //autherntication function 
+  isLoggedIn(): boolean {
+    return this.isAuthenticated;
   }
 };
