@@ -10,10 +10,20 @@ header {
     font-size: 15px;
     font-style: normal;
 }
-.link:hover {
-    color: var(--hover-white);
-    transition: all 0.3s;
-}
 .link:active {
     transform: scale(0.9);
+    transition: all 0.3s;
+}
+
+@media (hover: none) {
+    .link:active {
+        transition: all 0.3s;
+        transform: scale(0.9);
+    }
+}
+@media (hover: hover) {
+    .link:hover {
+        color: var(--hover-white);
+        transition: .3s;
+    }
 }
