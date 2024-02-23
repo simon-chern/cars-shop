@@ -1,5 +1,5 @@
-<section class="car" [routerLink]="['/catalogue', car.id]" routerLinkActive="/catalogue">
-    <img [src]="car.photo" alt="photo" class="photo">
-    <h2 class="brand">{{ car.brand }} {{car.model}}</h2>
-    <p class="price"> {{ car.price }} $</p>
+<section class="car" [routerLink]="['/catalogue', car?.id]" routerLinkActive="/catalogue">
+    <img [src]="car?.photo" alt="photo" class="photo">
+    <h2 class="brand">{{ car?.brand }} {{car?.model}}</h2>
+    <p class="price"> {{ car?.price }} $</p>
 </section>

@@ -11,5 +11,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './car.component.css'
 })
 export class CarComponent {
-  @Input() car!: CarInterface;
+  @Input() car?: CarInterface;
 }
