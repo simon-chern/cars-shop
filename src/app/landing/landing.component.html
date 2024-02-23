@@ -1,6 +1,8 @@
-<section>
-    <div class="landing">
-        <h1>Renting premium cars</h1>
-        <button class="button" routerLink="/catalogue">Go to catalogue</button>
+<section #trigger>
+    <div class="landing" >
+        <h1 >Renting premium cars</h1>
+        @defer (on hover(trigger)) {
+            <button class="button" routerLink="/catalogue">Go to catalogue</button>
+        }
     </div>
 </section>
