@@ -29,7 +29,7 @@ export class CarsService {
     );
   }
 
-  private extractUniqueBrands(data: CarInterface[]): string[] {
+  extractUniqueBrands(data: CarInterface[]): string[] {
     const uniqueBrands = new Set<string>();
     data.forEach(item => {
       if (item && item.brand) {
