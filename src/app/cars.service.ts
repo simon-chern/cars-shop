@@ -38,10 +38,4 @@ export class CarsService {
     });
     return Array.from(uniqueBrands);
   }
-  //user authentication 
-  private isAuthenticated: boolean = true;
-  //autherntication function 
-  isLoggedIn(): boolean {
-    return this.isAuthenticated;
-  }
 };

@@ -72,11 +72,6 @@ describe('CarsService', () => {
     expect(consoleSpy).toHaveBeenCalledWith('name', 'surname', '1488')
   });
 
-  it('should return is authenticated right', () => {
-    const Authenticated = true;
-    expect(service.isLoggedIn()).toBe(Authenticated);
-  });
-
   it('should extract unique brands', () => {
     const data: CarInterface[] = [
       {
