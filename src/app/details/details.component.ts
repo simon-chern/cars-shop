@@ -27,7 +27,7 @@ export class DetailsComponent {
       this.car = car;
     })
   }
-  submitForm() {
+  public submitForm() {
     this.CarsService.submitForm(
       this.carForm.value.name ?? '',
       this.carForm.value.surname ?? '',

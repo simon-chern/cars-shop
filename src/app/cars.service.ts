@@ -23,13 +23,13 @@ export class CarsService {
   }
 
 
-  getUniqueBrands(): Observable<string[]> {
+  public getUniqueBrands(): Observable<string[]> {
     return this.http.get<CarInterface[]>(this.url).pipe(
       map(data => this.extractUniqueBrands(data))
     );
   }
 
-  extractUniqueBrands(data: CarInterface[]): string[] {
+  public extractUniqueBrands(data: CarInterface[]): string[] {
     const uniqueBrands = new Set<string>();
     data.forEach(item => {
       if (item && item.brand) {
