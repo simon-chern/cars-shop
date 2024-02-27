@@ -19,7 +19,7 @@ export class CatalogueComponent implements OnInit {
 
   constructor() {
     this.carsService.getAllCars().subscribe((cars: CarInterface[]) => {
-      //this.cars = cars;
+      this.cars = cars;
       this.filteredCars = cars;
     });
   };
@@ -32,7 +32,7 @@ export class CatalogueComponent implements OnInit {
   isToggled: boolean = false;
   public getAllCarsButton() {
     this.carsService.getAllCars().subscribe((cars: CarInterface[]) => {
-      //this.cars = cars;
+      this.cars = cars;
       this.filteredCars = cars;
     });
   }
