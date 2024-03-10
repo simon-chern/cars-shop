@@ -2,7 +2,8 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarInterface } from '../carInterface';
 import { CarsService } from '../cars.service';
-import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
+import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
+import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-details',
@@ -17,9 +18,9 @@ export class DetailsComponent {
   CarsService = inject(CarsService);
   text = '';
   carForm = new FormGroup({
-    name: new FormControl(''),
-    surname: new FormControl(''),
-    phone: new FormControl('')
+    name: new FormControl('', Validators.required),
+    surname: new FormControl('',Validators.required),
+    phone: new FormControl('', Validators.required)
   })
   constructor() {
     const carId = Number(this.route.snapshot.params['id']);
@@ -27,16 +28,22 @@ export class DetailsComponent {
       this.car = car;
     })
   }
+  submited: boolean = false;
   public submitForm() {
-    this.CarsService.submitForm(
-      this.carForm.value.name ?? '',
-      this.carForm.value.surname ?? '',
-      this.carForm.value.phone ?? ''
-    )
-    this.carForm.reset()
-    this.text = "The info was successfully send and our manager will call you back soon."
-    setInterval(() => {
-      this.text = '';
-    }, 10000)
+    if(this.carForm.valid) {
+      this.CarsService.submitForm(
+        this.carForm.value.name ?? '',
+        this.carForm.value.surname ?? '',
+        this.carForm.value.phone ?? ''
+      )
+      this.carForm.reset()
+      this.text = "The info was successfully send and our manager will call you back soon."
+      setInterval(() => {
+        this.text = '';
+      }, 10000);
+      this.submited = false;
+    } else {
+      this.submited = true; 
+    }
   }
 }

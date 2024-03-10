@@ -7,17 +7,24 @@
         </div>
     </section>
     <section class="form">
-        <h2 style="color:green">{{text}}</h2>
         <h1>Rent the car of your dream right now! </h1>
+        <h2 style="color:green">{{text}}</h2>
         <form [formGroup]="carForm" (submit)="submitForm()">
             <label for="name"></label>
             <input formControlName="name" placeholder="Name">
-    
+            @if (submited || carForm.get('name')?.touched) {
+                <div style="color: red">Please enter a valid name</div>
+            }
             <label for="surname"></label>
             <input formControlName="surname" placeholder="Surname">
-    
+            @if (submited || carForm.get('surname')?.invalid && carForm.get('surname')?.touched) {
+                <div style="color: red">Please enter a valid surname</div>
+            }
             <label for="phone"></label>
             <input formControlName="phone" placeholder="Phone">
+            @if (submited || carForm.get('phone')?.invalid && carForm.get('phone')?.touched) {
+                <div style="color: red">Please enter a valid phone</div>
+            }
             <button type="submit" class="button">Submit form</button>
         </form>
     </section>
