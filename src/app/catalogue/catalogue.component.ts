@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { CarInterface } from '../carInterface';
 import { CarsService } from '../cars.service';
 import { CarComponent } from '../car/car.component';
@@ -16,9 +16,9 @@ export class CatalogueComponent implements OnInit {
   cars: CarInterface[] = [];
   carsService: CarsService = inject(CarsService);
   filteredCars: CarInterface[] = [];
-
-  constructor() {
-    this.carsService.getAllCars().pipe(takeUntilDestroyed()).subscribe((cars: CarInterface[]) => {
+  
+  constructor(public destroyRef: DestroyRef) {
+    this.carsService.getAllCars().pipe(takeUntilDestroyed(this.destroyRef)).subscribe((cars: CarInterface[]) => {
       this.cars = cars;
       this.filteredCars = cars;
     });
@@ -31,7 +31,7 @@ export class CatalogueComponent implements OnInit {
   }
   isToggled: boolean = false;
   public getAllCarsButton() {
-    this.carsService.getAllCars().pipe(takeUntilDestroyed()).subscribe((cars: CarInterface[]) => {
+    this.carsService.getAllCars().pipe(takeUntilDestroyed(this.destroyRef)).subscribe((cars: CarInterface[]) => {
       this.cars = cars;
       this.filteredCars = cars;
     });
@@ -43,7 +43,7 @@ export class CatalogueComponent implements OnInit {
   uniqueBrands = new BehaviorSubject<string[]>([]); 
   //it doesn't make sence to use this construction here 'cause it won't be changed over time just for the purpose of training RxJs.
   ngOnInit(): void {
-    this.carsService.getUniqueBrands().pipe(takeUntilDestroyed()).subscribe(brands => {
+    this.carsService.getUniqueBrands().pipe(takeUntilDestroyed(this.destroyRef)).subscribe(brands => {
       this.uniqueBrands.next(brands);
       //this.uniqueBrands = brands;
     });
