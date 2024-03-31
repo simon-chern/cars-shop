@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CarInterface } from '../carInterface';
 import { CarsService } from '../cars.service';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
-import { style } from '@angular/animations';
+
 
 @Component({
   selector: 'app-details',
@@ -19,7 +19,6 @@ export class DetailsComponent {
   text = '';
   carForm = new FormGroup({
     name: new FormControl('', Validators.required),
-    surname: new FormControl('',Validators.required),
     phone: new FormControl('', Validators.required)
   })
   constructor() {
@@ -31,12 +30,10 @@ export class DetailsComponent {
   submited: boolean = false;
   public submitForm() {
     if(this.carForm.valid) {
-      this.CarsService.submitForm(
-        this.carForm.value.name ?? '',
-        this.carForm.value.surname ?? '',
-        this.carForm.value.phone ?? ''
-      )
-      this.carForm.reset()
+      const name = this.carForm.value.name ?? '';
+      const phone = this.carForm.value.phone ?? '';
+      this.CarsService.submitForm(name, phone).subscribe
+      this.carForm.reset();
       this.text = "The info was successfully send and our manager will call you back soon."
       setInterval(() => {
         this.text = '';
