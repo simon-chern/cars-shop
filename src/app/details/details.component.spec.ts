@@ -34,7 +34,7 @@ describe('DetailsComponent', () => {
   });
   it('should submit the form and reset it on submitForm', () => {
     // Mock form data
-    component.carForm.setValue({ name: 'John', surname: 'Doe', phone: '123456789' });
+    component.carForm.setValue({ name: 'John', phone: '123456789' });
 
     // Trigger submitForm
     component.submitForm();
@@ -42,6 +42,6 @@ describe('DetailsComponent', () => {
     // Expect submitForm to be called with the form data
     //expect(mockCarsService.submitForm).toHaveBeenCalledWith('John', 'Doe', '123456789');
 
-    expect(component.carForm.value).toEqual({ name: null, surname: null, phone: null });
+    expect(component.carForm.value).toEqual({ name: null, phone: null });
   });
 });

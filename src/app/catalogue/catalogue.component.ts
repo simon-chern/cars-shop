@@ -16,11 +16,12 @@ export class CatalogueComponent implements OnInit {
   cars: CarInterface[] = [];
   carsService: CarsService = inject(CarsService);
   filteredCars: CarInterface[] = [];
-  
+
   constructor(public destroyRef: DestroyRef) {
     this.carsService.getAllCars().pipe(takeUntilDestroyed(this.destroyRef)).subscribe((cars: CarInterface[]) => {
       this.cars = cars;
       this.filteredCars = cars;
+      console.log(cars);
     });
   };
   filterCars(brand: string) {
@@ -40,7 +41,7 @@ export class CatalogueComponent implements OnInit {
     this.isToggled = !this.isToggled;
   }
   //uniqueBrands: string[] = [];
-  uniqueBrands = new BehaviorSubject<string[]>([]); 
+  uniqueBrands = new BehaviorSubject<string[]>([]);
   //it doesn't make sence to use this construction here 'cause it won't be changed over time just for the purpose of training RxJs.
   ngOnInit(): void {
     this.carsService.getUniqueBrands().pipe(takeUntilDestroyed(this.destroyRef)).subscribe(brands => {

@@ -22,17 +22,24 @@ export class DetailsComponent {
     phone: new FormControl('', Validators.required)
   })
   constructor() {
-    const carId = Number(this.route.snapshot.params['id']);
-    this.CarsService.getCarById(carId).subscribe(car => {
-      this.car = car;
-    })
+    const carId = this.route.snapshot.params['id'];
+    this.CarsService.getCarById(carId).then(docSnap => {
+      if (docSnap.exists()) {
+        const carData = docSnap.data() as CarInterface; // Assuming CarInterface matches the structure of the data in Firestore
+        this.car = carData;
+      } else {
+        console.log("u are fucked up")
+      }
+    }).catch(error => {
+      console.error('Error getting car:', error);
+    });
   }
   submited: boolean = false;
   public submitForm() {
     if(this.carForm.valid) {
       const name = this.carForm.value.name ?? '';
       const phone = this.carForm.value.phone ?? '';
-      this.CarsService.submitForm(name, phone).subscribe
+      this.CarsService.submitForm(name, phone)
       this.carForm.reset();
       this.text = "The info was successfully send and our manager will call you back soon."
       setInterval(() => {
