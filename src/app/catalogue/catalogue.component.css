@@ -11,10 +11,22 @@
     gap: 20px;
 }
 .grad {
-    background: linear-gradient(to left, #0b032d, white);
+    /* background: linear-gradient(to left, #0b032d, white);  */
+    /* color: transparent; */
+    color: white;
     background-clip: text;
     -webkit-background-clip: text;
-    color: transparent;
+    font-size: 20px;
+    text-shadow: 2px 2px 2px rgb(0, 0, 0);
+}
+@media screen and (min-screen: 600px) {
+    .grad {
+      font-size: 40px;
+      color: white;
+      background-clip: text;
+      -webkit-background-clip: text;
+      text-shadow: 2px 2px 2px rgb(0, 0, 0);
+    }
 }
 .filter {
     background-color: var(--dark-color);
@@ -28,10 +40,21 @@
   background-color: var(--text-color);
   color: var(--dark-color);
   font-family: inherit;
-  font-size: 28px;
+  font-size: 15px;
   padding: 10px;
   border-radius: 8px;
   margin: 10px 10px 0 10px;
+}
+@media screen and (min-width: 600px) {
+  .Btn {
+    background-color: var(--text-color);
+    color: var(--dark-color);
+    font-family: inherit;
+    font-size: 25px;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 10px 0 10px;
+}
 }
 .Btn:active {
   transform: scale(0.9);
@@ -71,10 +94,11 @@
 .results {
   background: var(--dark-color);
   display: grid;
+  place-items: center;
   column-gap: 14px;
   row-gap: 14px;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
-  justify-content: space-around;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 400px));
   padding: 10px;
   padding-bottom: 60px;
+  justify-content: space-around;
 }

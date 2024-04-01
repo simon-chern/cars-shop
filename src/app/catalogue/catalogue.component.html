@@ -4,7 +4,7 @@
 </section>
 <section class="filter">
     <button class="Btn" (click)="getAllCarsButton()">All brands</button>
-    <div class="BrandFiltering">
+    <div class="Btn" class="BrandFiltering">
         <button class="Btn" (click)="toggleButton()">Filter by brand ↓</button>
         <div class="dropdown" [ngClass]="{ 'active': isToggled }">
             @for (brand of uniqueBrands.value; track brand) {
