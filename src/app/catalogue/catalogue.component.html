@@ -1,4 +1,4 @@
-<section class="intro">
+<section class="intro" #trigger>
     <h2 class="grad">Renting of luxury cars in Moscow</h2>
     <p class="grad">Only the best cars with the full security package</p>
 </section>
@@ -14,7 +14,11 @@
     </div>
 </section>
 <section class="results">
-    @for(car of filteredCars; track car.id) {
-        <app-car [car]="car"></app-car>
+    @defer (on viewport(trigger)) {
+        @for(car of filteredCars; track car.id) {
+            <app-car [car]="car"></app-car>
+        }
+}    @loading (minimum 500ms) {
+        <mat-spinner style="margin: 0 auto"></mat-spinner>
     }
 </section>

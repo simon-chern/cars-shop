@@ -5,10 +5,12 @@ import { CarComponent } from '../car/car.component';
 import { CommonModule } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 @Component({
   selector: 'app-catalogue',
   standalone: true,
-  imports: [CarComponent, CommonModule],
+  imports: [CarComponent, CommonModule, MatProgressSpinnerModule],
   templateUrl: './catalogue.component.html',
   styleUrl: './catalogue.component.css'
 })

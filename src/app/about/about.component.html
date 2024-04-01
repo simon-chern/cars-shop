@@ -1,1 +1,6 @@
-<p>about works!</p>
+<p #trigger>it works!</p>
+@defer (on viewport(trigger)) {
+    <p>about works!</p>
+}    @loading (minimum 500ms) {
+        <mat-spinner></mat-spinner>
+    }
