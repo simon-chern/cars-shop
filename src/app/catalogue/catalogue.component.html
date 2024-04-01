@@ -7,7 +7,7 @@
     <div class="Btn" class="BrandFiltering">
         <button class="Btn" (click)="toggleButton()">Filter by brand ↓</button>
         <div class="dropdown" [ngClass]="{ 'active': isToggled }">
-            @for (brand of uniqueBrands.value; track brand) {
+            @for (brand of uniqueBrands; track brand) { <!-- uniqueBrands.value-->
                 <a (click)="filterCars(brand)"> {{brand}} </a>
             }
         </div>

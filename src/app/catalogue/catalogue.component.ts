@@ -21,7 +21,6 @@ export class CatalogueComponent implements OnInit {
     this.carsService.getAllCars().pipe(takeUntilDestroyed(this.destroyRef)).subscribe((cars: CarInterface[]) => {
       this.cars = cars;
       this.filteredCars = cars;
-      console.log(cars);
     });
   };
   filterCars(brand: string) {
@@ -35,18 +34,19 @@ export class CatalogueComponent implements OnInit {
     this.carsService.getAllCars().pipe(takeUntilDestroyed(this.destroyRef)).subscribe((cars: CarInterface[]) => {
       this.cars = cars;
       this.filteredCars = cars;
+      this.isToggled = false;
     });
   }
   public toggleButton() {
     this.isToggled = !this.isToggled;
   }
-  //uniqueBrands: string[] = [];
-  uniqueBrands = new BehaviorSubject<string[]>([]);
+  uniqueBrands: string[] = ["BMW", "Audi"];
+  //uniqueBrands = new BehaviorSubject<string[]>([]);
   //it doesn't make sence to use this construction here 'cause it won't be changed over time just for the purpose of training RxJs.
   ngOnInit(): void {
-    this.carsService.getUniqueBrands().pipe(takeUntilDestroyed(this.destroyRef)).subscribe(brands => {
-      this.uniqueBrands.next(brands);
-      //this.uniqueBrands = brands;
-    });
+    // this.carsService.getUniqueBrands().pipe(takeUntilDestroyed(this.destroyRef)).subscribe(brands => {
+    //   this.uniqueBrands.next(brands);
+    //   //this.uniqueBrands = brands;
+    // });
   };
 }
