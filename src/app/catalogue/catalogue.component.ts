@@ -3,7 +3,7 @@ import { CarInterface } from '../carInterface';
 import { CarsService } from '../cars.service';
 import { CarComponent } from '../car/car.component';
 import { CommonModule } from '@angular/common';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map, take } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
@@ -50,5 +50,8 @@ export class CatalogueComponent implements OnInit {
     //   this.uniqueBrands.next(brands);
     //   //this.uniqueBrands = brands;
     // });
+    this.carsService.getAllCars().pipe(takeUntilDestroyed(this.destroyRef))
+    .pipe(map(data => this.carsService.extractUniqueBrands(data)))
+    .subscribe(brands => this.uniqueBrands = brands);
   };
 }

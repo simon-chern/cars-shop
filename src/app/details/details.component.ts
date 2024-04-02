@@ -3,12 +3,17 @@ import { ActivatedRoute } from '@angular/router';
 import { CarInterface } from '../carInterface';
 import { CarsService } from '../cars.service';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
-
-
+import { MatIconModule } from '@angular/material/icon';
+import {
+  MAT_FORM_FIELD,
+  MatFormField,
+  MatFormFieldControl,
+  MatFormFieldModule,
+} from '@angular/material/form-field';
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MatIconModule, MatFormFieldModule],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css'
 })

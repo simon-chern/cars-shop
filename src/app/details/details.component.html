@@ -12,7 +12,7 @@
         <form [formGroup]="carForm" (submit)="submitForm()">
             <label for="name"></label>
             <input formControlName="name" placeholder="Name">
-            @if (submited || carForm.get('name')?.touched && carForm.get('phone')?.invalid) {
+            @if (submited || carForm.get('phone')?.invalid && carForm.get('name')?.touched) {
                 <div style="color: red">Please enter a valid name</div>
             }
             <label for="phone"></label>
