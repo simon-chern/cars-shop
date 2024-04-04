@@ -13,11 +13,11 @@
 .grad {
     /* background: linear-gradient(to left, #0b032d, white);  */
     /* color: transparent; */
-    color: white;
+    color: black;
     background-clip: text;
     -webkit-background-clip: text;
     font-size: 20px;
-    text-shadow: 2px 2px 2px rgb(0, 0, 0);
+    /* text-shadow: 2px 2px 2px rgb(0, 0, 0); */
 }
 @media screen and (min-screen: 600px) {
     .grad {
