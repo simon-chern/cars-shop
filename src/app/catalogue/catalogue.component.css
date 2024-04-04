@@ -6,26 +6,23 @@
     display: grid;
     justify-content: end;
     align-items: end;
-    font-size: 24px;
     padding: 30px;
     gap: 20px;
 }
 .grad {
     /* background: linear-gradient(to left, #0b032d, white);  */
     /* color: transparent; */
-    color: black;
+    color: white;
     background-clip: text;
     -webkit-background-clip: text;
     font-size: 20px;
-    /* text-shadow: 2px 2px 2px rgb(0, 0, 0); */
 }
-@media screen and (min-screen: 600px) {
+@media screen and (min-width: 1000px) {
     .grad {
-      font-size: 40px;
-      color: white;
+      font-size: 24px;
+      color: black;
       background-clip: text;
       -webkit-background-clip: text;
-      text-shadow: 2px 2px 2px rgb(0, 0, 0);
     }
 }
 .filter {
