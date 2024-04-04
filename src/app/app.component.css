@@ -10,6 +10,14 @@ header {
     font-size: 15px;
     font-style: normal;
 }
+@media screen and (max-width: 576px){
+    header {
+        font-size: 12px;
+    }
+}
+.logo {
+    height: 40px;
+}
 .link:active {
     transform: scale(0.9);
     transition: all 0.3s;

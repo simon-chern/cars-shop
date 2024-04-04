@@ -41,18 +41,18 @@ export class DetailsComponent {
   }
   submited: boolean = false;
   public submitForm() {
-    if(this.carForm.valid) {
+    if (this.carForm.valid) {
       const name = this.carForm.value.name ?? '';
       const phone = this.carForm.value.phone ?? '';
       this.CarsService.submitForm(name, phone)
       this.carForm.reset();
-      this.text = "The info was successfully send and our manager will call you back soon."
+      this.text = "Спасибо за заявку, мы свяжемся с Вами в ближайшее время."
       setInterval(() => {
         this.text = '';
       }, 10000);
       this.submited = false;
     } else {
-      this.submited = true; 
+      this.submited = true;
     }
   }
 }

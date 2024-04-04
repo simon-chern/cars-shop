@@ -1,0 +1,14 @@
+.about-section, .team-section {
+    margin-bottom: 2rem;
+    padding: 2rem;
+}
+
+.team-member {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.team-member img {
+    width: 150px;
+    border-radius: 5px;
+}

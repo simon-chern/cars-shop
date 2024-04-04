@@ -2,25 +2,28 @@
     <section class="head">
         <img class="photo" [src]="car?.photo" alt="photo of a car">
         <div class="information">
-            <h1> {{car?.brand}} {{car?.model}} is the best car</h1>
-            <p>This car has {{car?.horsepowers}} horsepowers, it was manufactured in {{car?.year}}, and it costs{{car?.price}} for a day</p>
+            <h1> {{car?.brand}} {{car?.model}} напрямую из Китая!
+            </h1>
+            <p>Год производства: {{ car?.year }}</p>
+            <p>Мощность: {{ car?.horsepowers }}</p>
+            <p>Цена от: {{ car?.price }}</p>
         </div>
     </section>
     <section class="form">
-        <h1>Rent the car of your dream right now! </h1>
+        <h1>Свяжитесь с нашим менеджером для уточнения деталей! </h1>
         <h2 style="color:green">{{text}}</h2>
         <form [formGroup]="carForm" (submit)="submitForm()">
             <label for="name"></label>
             <input formControlName="name" placeholder="Name">
             @if (submited || carForm.get('phone')?.invalid && carForm.get('name')?.touched) {
-                <div style="color: red">Please enter a valid name</div>
+                <div style="color: red">Неверный формат</div>
             }
             <label for="phone"></label>
             <input formControlName="phone" placeholder="Phone">
             @if (submited || carForm.get('phone')?.invalid && carForm.get('phone')?.touched) {
-                <div style="color: red">Please enter a valid phone</div>
+                <div style="color: red">Неверный формат</div>
             }
-            <button type="submit" class="button">Submit form</button>
+            <button type="submit" class="button">Отправить заявку</button>
         </form>
     </section>
 </article>

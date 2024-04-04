@@ -1,11 +1,11 @@
 <section class="intro" #trigger>
-    <h2 class="grad">Renting of luxury cars in Moscow</h2>
-    <p class="grad">Only the best cars with the full security package</p>
+    <h2 class="grad">Каталог машин из Китая</h2>
+    <p class="grad">Доставка от 5 месяцев! </p>
 </section>
 <section class="filter">
-    <button class="Btn" (click)="getAllCarsButton()">All brands</button>
+    <button class="Btn" (click)="getAllCarsButton()">Все бренды</button>
     <div class="Btn" class="BrandFiltering">
-        <button class="Btn" (click)="toggleButton()">Filter by brand ↓</button>
+        <button class="Btn" (click)="toggleButton()">Сортировать ↓</button>
         <div class="dropdown" [ngClass]="{ 'active': isToggled }">
             @for (brand of uniqueBrands; track brand) { <!-- uniqueBrands.value-->
                 <a (click)="filterCars(brand)"> {{brand}} </a>
@@ -14,7 +14,7 @@
     </div>
 </section>
 <section class="results">
-    @defer (on viewport(trigger)) {
+    @defer () {
         @for(car of filteredCars; track car.id) {
             <app-car [car]="car"></app-car>
         }
