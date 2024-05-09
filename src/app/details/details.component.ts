@@ -4,19 +4,17 @@ import { CarInterface } from '../carInterface';
 import { CarsService } from '../cars.service';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
-import {
-  MAT_FORM_FIELD,
-  MatFormField,
-  MatFormFieldControl,
-  MatFormFieldModule,
-} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [ReactiveFormsModule, MatIconModule, MatFormFieldModule],
+  imports: [ReactiveFormsModule, MatIconModule, MatFormFieldModule, MatInputModule],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css'
 })
+
 export class DetailsComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   car: CarInterface | undefined;

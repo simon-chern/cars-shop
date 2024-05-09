@@ -10,19 +10,21 @@
         </div>
     </section>
     <section class="form">
-        <h1>Свяжитесь с нашим менеджером для уточнения деталей! </h1>
+        <h1>Оставьте заявку и наш менеджер свяжется c вами для уточнения деталей!</h1>
         <h2 style="color:green">{{text}}</h2>
-        <form [formGroup]="carForm" (submit)="submitForm()">
-            <label for="name"></label>
-            <input formControlName="name" placeholder="Name">
-            @if (submited || carForm.get('phone')?.invalid && carForm.get('name')?.touched) {
-                <div style="color: red">Неверный формат</div>
-            }
-            <label for="phone"></label>
-            <input formControlName="phone" placeholder="Phone">
-            @if (submited || carForm.get('phone')?.invalid && carForm.get('phone')?.touched) {
-                <div style="color: red">Неверный формат</div>
-            }
+        <form [formGroup]="carForm" (submit)="submitForm()" class="formclass">
+            <mat-form-field appearance="outline">
+                <mat-label>Имя</mat-label>
+                <input matInput formControlName="name" placeholder="Дмитрий">
+                @if (carForm.invalid) {
+                    <mat-error>Неверный формат</mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Номер телефона</mat-label>
+                <input matInput formControlName="phone" placeholder="702341212341">
+                <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
             <button type="submit" class="button">Отправить заявку</button>
         </form>
     </section>

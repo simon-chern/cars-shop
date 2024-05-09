@@ -24,32 +24,16 @@ article {
 .form {
     text-align: center;
 }
-
-label {
-    display: inline-block;
-    margin-bottom: 5px;
-    color: var(--secondary-color);
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 12pt;
-}
-
-input {
-    display: block;
-    width: 100%;
-    font-size: 16pt;
-    margin-bottom: 15px;
-    padding: 10px;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    border-bottom: solid .3px;
-    border-radius: 5px;
+.formclass {
+    margin: 20px;
+    display: grid;
+    grid-gap: 10px;
+    place-content: center;
 }
 
 .button {
     display: block;
-    margin: 30px auto;
+    margin: 0 auto;
     font-size: 20px;
     font-family: inherit;
     color: var(--text-color);
