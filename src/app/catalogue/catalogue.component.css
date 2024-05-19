@@ -10,8 +10,6 @@
     gap: 20px;
 }
 .grad {
-    /* background: linear-gradient(to left, #0b032d, white);  */
-    /* color: transparent; */
     color: white;
     background-clip: text;
     -webkit-background-clip: text;

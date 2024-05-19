@@ -3,7 +3,7 @@ import { CarInterface } from '../carInterface';
 import { CarsService } from '../cars.service';
 import { CarComponent } from '../car/car.component';
 import { CommonModule } from '@angular/common';
-import { BehaviorSubject, map, take } from 'rxjs';
+import { map } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
@@ -14,10 +14,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   templateUrl: './catalogue.component.html',
   styleUrl: './catalogue.component.css'
 })
+
 export class CatalogueComponent implements OnInit {
-  cars: CarInterface[] = [];
-  carsService: CarsService = inject(CarsService);
-  filteredCars: CarInterface[] = [];
+  public cars: CarInterface[] = [];
+  private readonly carsService: CarsService = inject(CarsService);
+  public filteredCars: CarInterface[] = [];
 
   constructor(public destroyRef: DestroyRef) {
     this.carsService.getAllCars().pipe(takeUntilDestroyed(this.destroyRef)).subscribe((cars: CarInterface[]) => {
@@ -25,7 +26,7 @@ export class CatalogueComponent implements OnInit {
       this.filteredCars = cars;
     });
   };
-  filterCars(brand: string) {
+  public filterCars(brand: string) {
     this.filteredCars = this.cars.filter(
       car => car?.brand.includes(brand)
     )
@@ -42,14 +43,8 @@ export class CatalogueComponent implements OnInit {
   public toggleButton() {
     this.isToggled = !this.isToggled;
   }
-  uniqueBrands: string[] = ["BMW", "Audi"];
-  //uniqueBrands = new BehaviorSubject<string[]>([]);
-  //it doesn't make sence to use this construction here 'cause it won't be changed over time just for the purpose of training RxJs.
+  public uniqueBrands: string[] = ["BMW", "Audi"];
   ngOnInit(): void {
-    // this.carsService.getUniqueBrands().pipe(takeUntilDestroyed(this.destroyRef)).subscribe(brands => {
-    //   this.uniqueBrands.next(brands);
-    //   //this.uniqueBrands = brands;
-    // });
     this.carsService.getAllCars().pipe(takeUntilDestroyed(this.destroyRef))
     .pipe(map(data => this.carsService.extractUniqueBrands(data)))
     .subscribe(brands => this.uniqueBrands = brands);
