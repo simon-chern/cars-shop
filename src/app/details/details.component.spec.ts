@@ -2,15 +2,17 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DetailsComponent } from './details.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
 import { CarsService } from '../cars.service';
-import { CarComponent } from '../car/car.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { firebaseConfig } from '../apikey';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { importProvidersFrom } from '@angular/core';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 describe('DetailsComponent', () => {
   let component: DetailsComponent;
   let fixture: ComponentFixture<DetailsComponent>;
-  let mockActivatedRoute: Partial<ActivatedRoute>;
   let mockCarsService: Partial<CarsService>;
 
 
@@ -20,7 +22,12 @@ describe('DetailsComponent', () => {
     };
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule, HttpClientModule],
-      providers: [DetailsComponent],
+      providers: [
+        importProvidersFrom([
+          provideFirebaseApp(() => initializeApp(firebaseConfig)),
+          provideFirestore(() => getFirestore()),
+        ]), provideAnimationsAsync('noop'), provideAnimationsAsync()
+      ]
     })
       .compileComponents();
 
