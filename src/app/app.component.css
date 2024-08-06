@@ -57,6 +57,8 @@ header {
     color: #aaa;
     text-align: start;
     padding: 10px 0 10px 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .active-link {
